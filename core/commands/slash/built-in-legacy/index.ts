@@ -3,6 +3,7 @@ import {
   SlashCommandDescription,
   SlashCommandWithSource,
 } from "../../..";
+import AutoFLSlashCommand from "./autofl";
 import GenerateTerminalCommand from "./cmd";
 import CommitMessageCommand from "./commit";
 import HttpSlashCommand from "./http";
@@ -11,6 +12,7 @@ import ReviewMessageCommand from "./review";
 import ShareSlashCommand from "./share";
 
 const LegacyBuiltInSlashCommands: SlashCommand[] = [
+  AutoFLSlashCommand,
   ShareSlashCommand,
   GenerateTerminalCommand,
   HttpSlashCommand,

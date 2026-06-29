@@ -106,7 +106,7 @@ export class GlobalActions {
       }
 
       const element = await statusBar.findElement(
-        By.xpath("//*[contains(text(), 'Continue')]"),
+        By.xpath("//*[contains(text(), 'Autobot')]"),
       );
 
       // Validate we can get text
@@ -142,7 +142,7 @@ export class GlobalActions {
     console.log("hasNE:", hasNE);
 
     if (hasNE !== enabled) {
-      await workbench.executeCommand("Continue: Toggle Next Edit");
+      await workbench.executeCommand("Autobot: Toggle Next Edit");
       // Clear any resulting notifications
       await TestUtils.waitForTimeout(500);
       await GlobalActions.clearAllNotifications();

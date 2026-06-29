@@ -7,6 +7,7 @@ export const defaultConfigYaml: AssistantUnrolled = {
   name: "Main Config",
   version: "1.0.0",
   schema: "v1",
+  prompts: [],
 };
 
 export const defaultConfigYamlJetBrains: AssistantUnrolled = {
@@ -15,4 +16,5 @@ export const defaultConfigYamlJetBrains: AssistantUnrolled = {
   name: "Main Config",
   version: "1.0.0",
   schema: "v1",
+  prompts: [],
 };

@@ -31,6 +31,8 @@ import {
   stopStatusBarLoading,
 } from "./statusBar";
 
+const AUTOBOT_DOCS_URL = "https://github.com/auto-code-etri/autobot#readme";
+
 interface VsCodeCompletionInput {
   document: vscode.TextDocument;
   position: vscode.Position;
@@ -44,17 +46,13 @@ export class ContinueCompletionProvider
     if (await handleLLMError(e)) {
       return;
     }
-    let message = "Continue Autocomplete Error";
+    let message = "Autobot Autocomplete Error";
     if (e instanceof Error) {
       message += `: ${e.message}`;
     }
     vscode.window.showErrorMessage(message, "Documentation").then((val) => {
       if (val === "Documentation") {
-        vscode.env.openExternal(
-          vscode.Uri.parse(
-            "https://docs.continue.dev/features/tab-autocomplete",
-          ),
-        );
+        vscode.env.openExternal(vscode.Uri.parse(AUTOBOT_DOCS_URL));
       }
     });
   }

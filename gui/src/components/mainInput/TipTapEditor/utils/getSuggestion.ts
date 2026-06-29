@@ -13,6 +13,8 @@ import { ComboBoxItem, ComboBoxItemType, ComboBoxSubAction } from "../../types";
 import { TIPPY_DIV_ID } from "../TipTapEditor";
 import { SlashCommand } from "../extensions";
 
+const AUTOBOT_DOCS_URL = "https://github.com/auto-code-etri/autobot#readme";
+
 function getSuggestion(
   items: (props: { query: string }) => Promise<ComboBoxItem[]>,
   enterSubmenu: (editor: Editor, providerId: string) => void = (editor) => {},
@@ -167,10 +169,7 @@ export function getContextProviderDropdownOptions(
         title: "Add more context providers",
         type: "action",
         action: () => {
-          ideMessenger.post(
-            "openUrl",
-            "https://docs.continue.dev/customization/context-providers#built-in-context-providers",
-          );
+          ideMessenger.post("openUrl", AUTOBOT_DOCS_URL);
         },
         description: "",
       });

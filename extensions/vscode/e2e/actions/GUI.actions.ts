@@ -18,7 +18,7 @@ export class GUIActions {
       await new Workbench().executeCommand("View: Move View");
       await (
         await InputBox.create(DEFAULT_TIMEOUT.MD)
-      ).selectQuickPick("Continue");
+      ).selectQuickPick("Autobot");
       await (
         await InputBox.create(DEFAULT_TIMEOUT.MD)
       ).selectQuickPick("New Secondary Side Bar Entry");
@@ -37,29 +37,28 @@ export class GUIActions {
     const view = new WebView();
     const driver = view.getDriver();
 
-    const iframes = await GUISelectors.getAllIframes(driver);
-    let continueIFrame: WebElement | undefined = undefined;
-    for (let i = 0; i < iframes.length; i++) {
-      const iframe = iframes[i];
-      const src = await iframe.getAttribute("src");
-      if (src.includes("extensionId=Continue.continue")) {
-        continueIFrame = iframe;
-        break;
-      }
-    }
+    const continueIFrame = await TestUtils.waitForSuccess(async () => {
+      await driver.switchTo().defaultContent();
+      const iframes = await GUISelectors.getAllIframes(driver);
 
-    if (!continueIFrame) {
-      throw new Error("Could not find Continue iframe");
-    }
+      for (let i = 0; i < iframes.length; i++) {
+        const iframe = iframes[i];
+        const src = await iframe.getAttribute("src");
+        if (src?.toLowerCase().includes("extensionid=etri.autobot")) {
+          return iframe;
+        }
+      }
+
+      throw new Error("Could not find Autobot iframe");
+    }, DEFAULT_TIMEOUT.XL);
 
     await driver.switchTo().frame(continueIFrame);
 
-    await new Promise((res) => {
-      setTimeout(res, 500);
-    });
+    await TestUtils.waitForTimeout(500);
 
-    const reactIFrame = await GUISelectors.getReactIframe(driver);
-
+    const reactIFrame = await TestUtils.waitForSuccess(async () => {
+      return GUISelectors.getReactIframe(driver);
+    }, DEFAULT_TIMEOUT.XL);
     if (!reactIFrame) {
       throw new Error("Could not find React iframe");
     }

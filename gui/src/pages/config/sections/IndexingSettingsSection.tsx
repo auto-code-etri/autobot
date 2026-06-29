@@ -13,6 +13,8 @@ import { UserSetting } from "../components/UserSetting";
 import IndexingProgress from "../features/indexing";
 import { DocsSection } from "./DocsSection";
 
+const AUTOBOT_DOCS_URL = "https://github.com/auto-code-etri/autobot#readme";
+
 function CodebaseSubSection() {
   const config = useAppSelector((state) => state.config.config);
 
@@ -91,7 +93,7 @@ export function IndexingSettingsSection() {
             <div className="mt-1 text-xs">
               Learn how to{" "}
               <a
-                href="https://docs.continue.dev/guides/codebase-documentation-awareness"
+                href={AUTOBOT_DOCS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-inherit underline hover:brightness-125"

@@ -89,7 +89,7 @@ export function validateConfigYaml(
       ) {
         errors.push({
           fatal: false,
-          message: `${model.model} is not trained for tab-autocomplete, and will result in low-quality suggestions. See the docs to learn more about why: https://docs.continue.dev/features/tab-autocomplete#i-want-better-completions-should-i-use-gpt-4`,
+          message: `${model.model} is not trained for tab-autocomplete, and may result in low-quality suggestions. See Autobot documentation: https://github.com/auto-code-etri/autobot#readme`,
         });
       }
     }

@@ -1,27 +1,26 @@
 {
-  "name": "continue",
+  "name": "autobot",
   "icon": "media/icon.png",
-  "author": "Continue Dev, Inc",
-  "version": "2.0.0",
+  "author": "ETRI",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/continuedev/continue"
+    "url": "https://github.com/auto-code-etri/autobot"
   },
   "extensionKind": [
     "ui",
     "workspace"
   ],
   "bugs": {
-    "url": "https://github.com/continuedev/continue/issues",
-    "email": "nate@continue.dev"
+    "url": "https://github.com/auto-code-etri/autobot/issues"
   },
-  "homepage": "https://continue.dev",
-  "qna": "https://github.com/continuedev/continue/issues/new/choose",
+  "homepage": "https://github.com/auto-code-etri/autobot",
+  "qna": "https://github.com/auto-code-etri/autobot/issues/new/choose",
   "license": "Apache-2.0",
-  "displayName": "Continue - open-source AI code agent",
+  "displayName": "Autobot - open-source AI code agent",
   "pricing": "Free",
   "description": "The leading open-source AI code agent",
-  "publisher": "Continue",
+  "publisher": "ETRI",
   "engines": {
     "vscode": "^1.70.0",
     "node": ">=20.20.1"
@@ -84,19 +83,19 @@
       }
     ],
     "configuration": {
-      "title": "Continue",
+      "title": "Autobot",
       "properties": {
         "continue.telemetryEnabled": {
           "type": "boolean",
           "default": true,
-          "markdownDescription": "Continue collects anonymous usage data, cleaned of PII, to help us improve the product for our users. Read more  at [continue.dev › Telemetry](https://docs.continue.dev/telemetry).",
+          "markdownDescription": "Autobot anonymous telemetry compatibility setting. This setting is deprecated; use the Telemetry > Allow Anonymous Telemetry setting in the extension User Settings page.",
           "markdownDeprecationMessage": "This setting is deprecated and will be removed in a later version. Please use the _Telemetry > Allow Anonymous Telemetry_ setting in the extension's User Settings page.",
           "deprecationMessage": "Please use the _Telemetry > Allow Anonymous Telemetry_ setting in the extension's User Settings page."
         },
         "continue.showInlineTip": {
           "type": "boolean",
           "default": true,
-          "description": "Show inline suggestion to use the Continue keyboard shortcuts (e.g. \"Cmd/Ctrl L to select code, Cmd/Ctrl I to edit\")."
+          "description": "Show inline suggestion to use the Autobot keyboard shortcuts (e.g. \"Cmd/Ctrl L to select code, Cmd/Ctrl I to edit\")."
         },
         "continue.disableQuickFix": {
           "type": "boolean",
@@ -106,27 +105,27 @@
         "continue.enableQuickActions": {
           "type": "boolean",
           "default": false,
-          "markdownDescription": "Enable the experimental Quick Actions feature. Read our walkthrough to learn about configuration and how to share feedback: [continue.dev › Walkthrough: Quick Actions (experimental)](https://docs.continue.dev/customize/deep-dives/vscode-actions#quick-actions)"
+          "markdownDescription": "Enable the experimental Quick Actions feature."
         },
         "continue.enableTabAutocomplete": {
           "type": "boolean",
           "default": true,
-          "markdownDescription": "Enable Continue's tab autocomplete feature. Read our walkthrough to learn about configuration and how to share feedback: [continue.dev › Walkthrough: Tab Autocomplete (beta)](https://docs.continue.dev/features/tab-autocomplete)"
+          "markdownDescription": "Enable Autobot's tab autocomplete feature."
         },
         "continue.enableNextEdit": {
           "type": "boolean",
           "default": true,
-          "markdownDescription": "Enable Continue's next edit feature. Read our docs to learn about configuration and how to share feedback: [continue.dev › Features › Autocomplete › Next Edit (experimental)](https://docs.continue.dev/features/autocomplete/next-edit)"
+          "markdownDescription": "Enable Autobot's next edit feature."
         },
         "continue.pauseTabAutocompleteOnBattery": {
           "type": "boolean",
           "default": false,
-          "markdownDescription": "Pause Continue's tab autocomplete feature when your battery is low."
+          "markdownDescription": "Pause Autobot's tab autocomplete feature when your battery is low."
         },
         "continue.pauseCodebaseIndexOnStart": {
           "type": "boolean",
           "default": false,
-          "markdownDescription": "Pause Continue's codebase index on start."
+          "markdownDescription": "Pause Autobot's codebase index on start."
         },
         "continue.enableConsole": {
           "type": "boolean",
@@ -153,228 +152,222 @@
     "commands": [
       {
         "command": "continue.applyCodeFromChat",
-        "category": "Continue",
+        "category": "Autobot",
         "title": "Apply code from chat",
-        "group": "Continue"
+        "group": "Autobot"
       },
       {
         "command": "continue.acceptDiff",
-        "category": "Continue",
+        "category": "Autobot",
         "title": "Accept Diff",
-        "group": "Continue"
+        "group": "Autobot"
       },
       {
         "command": "continue.rejectDiff",
-        "category": "Continue",
+        "category": "Autobot",
         "title": "Reject Diff",
-        "group": "Continue",
+        "group": "Autobot",
         "icon": "$(stop)"
       },
       {
         "command": "continue.acceptVerticalDiffBlock",
-        "category": "Continue",
+        "category": "Autobot",
         "title": "Accept Vertical Diff Block",
-        "group": "Continue"
+        "group": "Autobot"
       },
       {
         "command": "continue.rejectVerticalDiffBlock",
-        "category": "Continue",
+        "category": "Autobot",
         "title": "Reject Vertical Diff Block",
-        "group": "Continue"
+        "group": "Autobot"
       },
       {
         "command": "continue.focusEdit",
-        "category": "Continue",
+        "category": "Autobot",
         "title": "Add to Edit",
-        "group": "Continue"
-      },
-      {
-        "command": "continue.focusContinueInput",
-        "category": "Continue",
-        "title": "Add Highlighted Code to Context and Clear Chat",
-        "group": "Continue"
+        "group": "Autobot"
       },
       {
         "command": "continue.focusContinueInputWithoutClear",
-        "category": "Continue",
+        "category": "Autobot",
         "title": "Add to Chat",
-        "group": "Continue"
+        "group": "Autobot"
       },
       {
         "command": "continue.debugTerminal",
-        "category": "Continue",
+        "category": "Autobot",
         "title": "Debug Terminal",
-        "group": "Continue"
+        "group": "Autobot"
       },
       {
         "command": "continue.exitEditMode",
-        "category": "Continue",
+        "category": "Autobot",
         "title": "Exit Edit Mode",
-        "group": "Continue"
+        "group": "Autobot"
       },
       {
         "command": "continue.openConfigPage",
-        "category": "Continue",
+        "category": "Autobot",
         "title": "Open Settings",
         "icon": "$(gear)",
-        "group": "Continue"
+        "group": "Autobot"
       },
       {
         "command": "continue.toggleTabAutocompleteEnabled",
-        "category": "Continue",
+        "category": "Autobot",
         "title": "Toggle Autocomplete Enabled",
-        "group": "Continue"
+        "group": "Autobot"
       },
       {
         "command": "continue.forceAutocomplete",
-        "title": "Continue: Force Autocomplete",
-        "category": "Continue"
+        "title": "Autobot: Force Autocomplete",
+        "category": "Autobot"
       },
       {
         "command": "continue.selectFilesAsContext",
-        "category": "Continue",
+        "category": "Autobot",
         "title": "Select Files as Context",
-        "group": "Continue"
+        "group": "Autobot"
       },
       {
         "command": "continue.newSession",
-        "category": "Continue",
+        "category": "Autobot",
         "title": "New Session",
         "icon": "$(add)",
-        "group": "Continue"
+        "group": "Autobot"
       },
       {
         "command": "continue.shareSession",
-        "category": "Continue",
+        "category": "Autobot",
         "title": "Share Current Chat Session as Markdown",
-        "group": "Continue"
+        "group": "Autobot"
       },
       {
         "command": "continue.viewHistory",
-        "category": "Continue",
+        "category": "Autobot",
         "title": "View History",
         "icon": "$(history)",
-        "group": "Continue"
+        "group": "Autobot"
       },
       {
         "command": "continue.viewLogs",
-        "category": "Continue",
+        "category": "Autobot",
         "title": "View Logs",
-        "group": "Continue"
+        "group": "Autobot"
       },
       {
         "command": "continue.clearConsole",
-        "category": "Continue",
+        "category": "Autobot",
         "title": "Clear Console",
         "icon": "$(clear-all)",
-        "group": "Continue"
+        "group": "Autobot"
       },
       {
         "command": "continue.navigateTo",
-        "category": "Continue",
+        "category": "Autobot",
         "title": "Navigate to a path",
-        "group": "Continue"
+        "group": "Autobot"
       },
       {
         "command": "continue.writeCommentsForCode",
-        "category": "Continue",
+        "category": "Autobot",
         "title": "Write Comments for this Code",
-        "group": "Continue"
+        "group": "Autobot"
       },
       {
         "command": "continue.writeDocstringForCode",
-        "category": "Continue",
+        "category": "Autobot",
         "title": "Write a Docstring for this Code",
-        "group": "Continue"
+        "group": "Autobot"
       },
       {
         "command": "continue.fixCode",
-        "category": "Continue",
+        "category": "Autobot",
         "title": "Fix this Code",
-        "group": "Continue"
+        "group": "Autobot"
       },
       {
         "command": "continue.optimizeCode",
-        "category": "Continue",
+        "category": "Autobot",
         "title": "Optimize this Code",
-        "group": "Continue"
+        "group": "Autobot"
       },
       {
         "command": "continue.fixGrammar",
-        "category": "Continue",
+        "category": "Autobot",
         "title": "Fix Grammar / Spelling",
-        "group": "Continue"
+        "group": "Autobot"
       },
       {
         "command": "continue.codebaseForceReIndex",
-        "category": "Continue",
+        "category": "Autobot",
         "title": "Codebase Force Re-Index",
-        "group": "Continue"
+        "group": "Autobot"
       },
       {
         "command": "continue.rebuildCodebaseIndex",
-        "category": "Continue",
+        "category": "Autobot",
         "title": "Rebuild codebase index",
-        "group": "Continue"
+        "group": "Autobot"
       },
       {
         "command": "continue.docsIndex",
-        "category": "Continue",
+        "category": "Autobot",
         "title": "Docs Index",
-        "group": "Continue"
+        "group": "Autobot"
       },
       {
         "command": "continue.docsReIndex",
-        "category": "Continue",
+        "category": "Autobot",
         "title": "Docs Force Re-Index",
-        "group": "Continue"
+        "group": "Autobot"
       },
       {
         "command": "continue.focusContinueInput",
-        "category": "Continue",
-        "title": "Focus Continue Chat",
-        "group": "Continue"
+        "category": "Autobot",
+        "title": "Focus Autobot Chat",
+        "group": "Autobot"
       },
       {
         "command": "continue.enterEnterpriseLicenseKey",
-        "category": "Continue",
+        "category": "Autobot",
         "title": "Enter Enterprise License Key",
-        "group": "Continue"
+        "group": "Autobot"
       },
       {
         "command": "continue.toggleNextEditEnabled",
-        "title": "Continue: Toggle Next Edit"
+        "title": "Autobot: Toggle Next Edit"
       },
       {
         "command": "continue.nextEditWindow.hideNextEditSuggestion",
-        "category": "Continue",
+        "category": "Autobot",
         "title": "Hide Next Edit Suggestion"
       },
       {
         "command": "continue.nextEditWindow.acceptNextEditSuggestion",
-        "category": "Continue",
+        "category": "Autobot",
         "title": "Accept Next Edit Suggestion"
       },
       {
         "command": "continue.forceNextEdit",
-        "category": "Continue",
-        "title": "Continue: Force Next Edit"
+        "category": "Autobot",
+        "title": "Autobot: Force Next Edit"
       },
       {
         "command": "continue.acceptJump",
-        "category": "Continue",
-        "title": "Continue: Accept Jump Suggestion"
+        "category": "Autobot",
+        "title": "Autobot: Accept Jump Suggestion"
       },
       {
         "command": "continue.rejectJump",
-        "category": "Continue",
-        "title": "Continue: Reject Jump Suggestion"
+        "category": "Autobot",
+        "title": "Autobot: Reject Jump Suggestion"
       },
       {
         "command": "continue.openInNewWindow",
-        "category": "Continue",
+        "category": "Autobot",
         "title": "Open in new window",
-        "group": "Continue"
+        "group": "Autobot"
       }
     ],
     "keybindings": [
@@ -498,7 +491,7 @@
     "submenus": [
       {
         "id": "continue.continueSubMenu",
-        "label": "Continue"
+        "label": "Autobot"
       }
     ],
     "menus": {
@@ -531,18 +524,18 @@
       "editor/title/run": [
         {
           "command": "continue.rejectDiff",
-          "group": "Continue",
+          "group": "Autobot",
           "when": "continue.streamingDiff"
         }
       ],
       "continue.continueSubMenu": [
         {
           "command": "continue.focusContinueInputWithoutClear",
-          "group": "Continue"
+          "group": "Autobot"
         },
         {
           "command": "continue.focusEdit",
-          "group": "Continue",
+          "group": "Autobot",
           "when": "!editorReadonly"
         }
       ],
@@ -597,14 +590,14 @@
       "activitybar": [
         {
           "id": "continue",
-          "title": "Continue",
-          "icon": "media/sidebar-icon.png"
+          "title": "Autobot",
+          "icon": "media/sidebar-icon.svg"
         }
       ],
       "panel": [
         {
           "id": "continueConsole",
-          "title": "Continue Console",
+          "title": "Autobot Console",
           "icon": "$(window)"
         }
       ]
@@ -614,8 +607,8 @@
         {
           "type": "webview",
           "id": "continue.continueGUIView",
-          "name": "Continue",
-          "icon": "media/sidebar-icon.png",
+          "name": "Autobot",
+          "icon": "media/sidebar-icon.svg",
           "visibility": "visible"
         }
       ],
@@ -623,7 +616,7 @@
         {
           "type": "webview",
           "id": "continue.continueConsoleView",
-          "name": "Continue Console",
+          "name": "Autobot Console",
           "icon": "$(window)",
           "visibility": "visible",
           "when": "config.continue.enableConsole"
@@ -675,7 +668,7 @@
     "e2e:get-vscode": "extest get-vscode --storage ./e2e/storage --code_version 1.95.0",
     "e2e:sign-vscode": "codesign --entitlements entitlements.plist --deep --force -s - './e2e/storage/Visual Studio Code.app'",
     "e2e:copy-vsix": "chmod +x ./e2e/get-latest-vsix.sh && bash ./e2e/get-latest-vsix.sh",
-    "e2e:install-vsix": "extest install-vsix -f ./e2e/vsix/continue.vsix --extensions_dir ./e2e/.test-extensions --storage ./e2e/storage",
+    "e2e:install-vsix": "extest install-vsix -f ./e2e/vsix/autobot.vsix --extensions_dir ./e2e/.test-extensions --storage ./e2e/storage",
     "e2e:install-extensions": "extest install-from-marketplace ms-vscode-remote.remote-ssh --extensions_dir ./e2e/.test-extensions --storage ./e2e/storage && extest install-from-marketplace ms-vscode-remote.remote-containers --extensions_dir ./e2e/.test-extensions --storage ./e2e/storage && extest install-from-marketplace ms-vscode-remote.remote-wsl --extensions_dir ./e2e/.test-extensions --storage ./e2e/storage",
     "e2e:test": "NODE_ENV=e2e extest run-tests ${TEST_FILE:-'./e2e/_output/tests/*.test.js'} --code_settings settings.json --extensions_dir ./e2e/.test-extensions --storage ./e2e/storage",
     "e2e:clean": "rm -rf ./e2e/_output ./e2e/storage",
@@ -716,7 +709,7 @@
     "rimraf": "^5.0.5",
     "typescript": "^5.6.3",
     "vite": "^4.5.14",
-    "vscode-extension-tester": "^8.14.1"
+    "vscode-extension-tester": "^8.23.0"
   },
   "dependencies": {
     "@continuedev/config-types": "file:../../packages/config-types",

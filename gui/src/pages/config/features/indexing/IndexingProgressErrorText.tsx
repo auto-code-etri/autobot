@@ -14,6 +14,8 @@ export interface IndexingProgressErrorTextProps {
   update: IndexingProgressUpdate;
 }
 
+const AUTOBOT_DOCS_URL = "https://github.com/auto-code-etri/autobot#readme";
+
 const copyWarningsToClipboard = (warnings: string[] = []) => {
   const warningsText = warnings.join("\n");
   void navigator.clipboard.writeText(warningsText);
@@ -34,11 +36,11 @@ function IndexingProgressErrorText({ update }: IndexingProgressErrorTextProps) {
           Add an Embeddings model to enable codebase indexing. See the docs for
           examples:
           <a
-            href="https://docs.continue.dev/walkthroughs/codebase-embeddings#embeddings-providers"
+            href={AUTOBOT_DOCS_URL}
             target="_blank"
             className="cursor-pointer text-inherit underline hover:text-inherit"
           >
-            https://docs.continue.dev/walkthroughs/codebase-embeddings#embeddings-providers
+            {AUTOBOT_DOCS_URL}
           </a>
         </span>
       </div>

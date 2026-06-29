@@ -24,6 +24,7 @@ e2e/storage
 e2e/vsix
 e2e/test-continue/*
 !e2e/test-continue/config.json
+!e2e/test-continue/autofl_failure_test.py
 e2e/test-continue-yaml/*
 !e2e/test-continue-yaml/config.yaml
 config-yaml-schema.json

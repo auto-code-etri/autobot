@@ -3,7 +3,7 @@ import { osModelsEditPrompt } from "../templates/edit.js";
 
 import OpenAI from "./OpenAI.js";
 
-// Get Continue version from package.json at build time
+// Get Autobot version from package.json at build time
 const CONTINUE_VERSION = process.env.npm_package_version || "unknown";
 
 /**
@@ -38,14 +38,14 @@ class ClawRouter extends OpenAI {
   };
 
   /**
-   * Override headers to include Continue-specific User-Agent
+   * Override headers to include Autobot-specific User-Agent
    * This helps ClawRouter track integration usage and optimize accordingly
    */
   protected _getHeaders() {
     return {
       ...super._getHeaders(),
-      "User-Agent": `Continue/${CONTINUE_VERSION}`,
-      "X-Continue-Provider": "clawrouter",
+      "User-Agent": `Autobot/${CONTINUE_VERSION}`,
+      "X-Autobot-Provider": "clawrouter",
     };
   }
 }

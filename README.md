@@ -1,63 +1,47 @@
-<h1 align="center">Continue</h1>
+<h1 align="center">Autobot</h1>
 
-<p align="center">Pioneering open-source coding agent</p>
+<p align="center">ETRI에서 공개한 Visual Studio Code용 오픈소스 AI 코드 에이전트</p>
 
 <div align="center">
 
 <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" /></a>
-<a href="https://docs.continue.dev"><img src="https://img.shields.io/badge/Docs-docs.continue.dev-blue" /></a>
-<a href="https://github.com/continuedev/continue/releases"><img src="https://img.shields.io/badge/Changelog-GitHub_Releases-blue" /></a>
+<a href="https://github.com/auto-code-etri/autobot"><img src="https://img.shields.io/badge/Repository-auto--code--etri%2Fautobot-blue" /></a>
 
 </div>
 
 <p align="center">
-  <img src="media/github-readme.png" alt="Banner" />
+  <img src="extensions/vscode/media/readme.png" alt="ETRI Autobot logo" />
 </p>
 
-## What is Continue?
+## 개요
 
-> _Note: The `continuedev/continue` repository is no longer actively maintained and is read-only for all users._
+Autobot은 ETRI에서 공개하고 유지하는 Visual Studio Code용 오픈소스 AI 코드 에이전트입니다. Apache-2.0 라이선스로 공개된 Continue v2.0.0 코드베이스를 기반으로 합니다.
 
-Continue is a coding agent available as a [CLI](#cli), [VS Code extension](#vs-code), and [JetBrains plugin](#jetbrains).
+Autobot은 기존 Continue 설정과 내부 확장 구조의 호환성을 필요한 범위에서 유지하면서, 사용자가 제품을 Autobot으로 인지할 수 있도록 ETRI 브랜드 경험과 AutoFL 중심의 결함 위치 추정 워크플로우를 제공합니다.
 
-## Documentation
+## 주요 기능
 
-To learn how to configure Continue, how it works, and how to customize it, check out the [Continue Docs](https://docs.continue.dev).
+- VS Code 안에서 AI 기반 채팅, 코드 편집, 자동완성, 에이전트 워크플로우 제공
+- 실패한 테스트 명령을 기반으로 결함 위치를 추정하는 `/autofl` 슬래시 명령 제공
+- 기존 Continue 설정 파일과 내부 command/config namespace 호환성 유지
+- Apache-2.0 라이선스 기반 공개 배포 및 upstream Continue 저작권 고지 유지
 
-## Final 2.0.0 Release
+## VS Code 확장
 
-We polished Continue and did a final 2.0.0 release of the VS Code extension, CLI, and JetBrains plugin.
+Autobot VS Code 확장은 `extensions/vscode`에서 빌드되고 배포됩니다.
 
-This included removing anonymous telemetry, pulling out authentication, squashing bugs, and more.
+- 공개 확장 ID: `ETRI.autobot`
+- 사용자에게 표시되는 제품명: `Autobot`
+- 호환성 namespace: 기존 `continue.*` command와 설정은 의도적으로 유지됩니다
 
-### VS Code
+## AutoFL
 
-[![VS Code Marketplace](https://img.shields.io/badge/VS_Code_Marketplace-007ACC?logo=visualstudiocode&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=Continue.continue) [![OpenVSX Registry](https://img.shields.io/badge/OpenVSX_Registry-C160EF?logo=eclipseide&logoColor=white)](https://open-vsx.org/extension/Continue/continue) [![View source](https://img.shields.io/badge/View_source-181717?logo=github&logoColor=white)](extensions/vscode)
+AutoFL은 Autobot의 첫 번째 공개 기능 트랙입니다. `/autofl` 명령은 사용자가 입력한 실패 테스트 명령을 직접 실행하고, stdout, stderr, stack frame source snippet을 수집한 뒤 해당 근거를 바탕으로 결함 위치 추정을 지원합니다.
 
-### CLI
+자세한 사용 방법은 [AutoFL 사용 가이드](docs/autofl.md)를 참고하세요.
 
-[![npm](https://img.shields.io/badge/npm-CB3837?logo=npm&logoColor=white)](https://www.npmjs.com/package/@continuedev/cli) [![View source](https://img.shields.io/badge/View_source-181717?logo=github&logoColor=white)](extensions/cli)
+## 라이선스 및 출처
 
-### JetBrains
+Autobot은 Apache-2.0 라이선스로 배포됩니다.
 
-> _Note: We recommend using the Continue CLI instead of the JetBrains plugin._
-
-[![GitHub Releases](https://img.shields.io/badge/GitHub_Releases-181717?logo=github&logoColor=white)](https://github.com/continuedev/continue/releases) [![View source](https://img.shields.io/badge/View_source-181717?logo=github&logoColor=white)](extensions/intellij)
-
-## Contributors
-
-Thank you to the entire Continue community for helping us create a pioneering coding agent.
-
-What we built together pushed the boundaries of what AI developer tooling could be.
-
-We hope this codebase continues to serve as a foundation for others.
-
-## Code friends
-
-<a href="https://github.com/continuedev/continue/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=continuedev/continue&max=500" />
-</a>
-
-## License
-
-Apache 2.0 © 2023-2026 Continue Dev, Inc.
+Autobot은 Apache-2.0 라이선스의 Continue v2.0.0 코드베이스에서 파생되었습니다. 원본 Continue의 저작권 및 라이선스 고지는 이 저장소에 보존됩니다.

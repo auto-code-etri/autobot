@@ -156,7 +156,11 @@ export function getMetaKeyName() {
 }
 
 export function getExtensionVersion(): string {
-  const extension = vscode.extensions.getExtension("continue.continue");
+  const extension =
+    vscode.extensions.getExtension("ETRI.autobot") ??
+    vscode.extensions.getExtension("etri.autobot") ??
+    vscode.extensions.getExtension("Continue.continue") ??
+    vscode.extensions.getExtension("continue.continue");
   return extension?.packageJSON.version || "0.1.0";
 }
 

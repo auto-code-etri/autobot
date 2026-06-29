@@ -29,6 +29,20 @@ if (!fs.existsSync(guiDist)) {
 
 const skipInstalls = process.env.SKIP_INSTALLS === "true";
 
+function buildOpenAiAdapters() {
+  const start = Date.now();
+  console.log(
+    `[timer] Starting openai-adapters build at ${new Date().toISOString()}`,
+  );
+  process.chdir(path.join(continueDir, "packages", "openai-adapters"));
+  execCmdSync("npm install");
+  execCmdSync("npm run build");
+  process.chdir(path.join(continueDir, "extensions", "vscode"));
+  console.log(
+    `[timer] openai-adapters build completed in ${Date.now() - start}ms`,
+  );
+}
+
 // Get the target to package for
 let target = undefined;
 const args = process.argv;
@@ -78,6 +92,8 @@ void (async () => {
   writeBuildTimestamp();
 
   if (!skipInstalls) {
+    buildOpenAiAdapters();
+
     const installStart = Date.now();
     console.log(`[timer] Starting npm installs at ${new Date().toISOString()}`);
     await Promise.all([generateAndCopyConfigYamlSchema(), npmInstall()]);

@@ -56,7 +56,7 @@ function getContentsForNewBlock(blockType: BlockType): ConfigYaml {
       configYaml.docs = [
         {
           name: "New docs",
-          startUrl: "https://docs.continue.dev",
+          startUrl: "https://github.com/auto-code-etri/autobot#readme",
         },
       ];
       break;

@@ -14,19 +14,20 @@ import { getMetaKeyLabel, isJetBrains } from "../../../util";
 import { ConfigHeader } from "../components/ConfigHeader";
 import { ModelRoleRow } from "../components/ModelRoleRow";
 
+const AUTOBOT_DOCS_URL = "https://github.com/auto-code-etri/autobot#readme";
+
 const MODEL_DOCS_URLS = {
   chat: {
-    learnMore: "https://docs.continue.dev/ide-extensions/chat/quick-start",
-    setup: "https://docs.continue.dev/ide-extensions/chat/model-setup",
+    learnMore: AUTOBOT_DOCS_URL,
+    setup: AUTOBOT_DOCS_URL,
   },
   autocomplete: {
-    learnMore:
-      "https://docs.continue.dev/ide-extensions/autocomplete/quick-start",
-    setup: "https://docs.continue.dev/ide-extensions/autocomplete/model-setup",
+    learnMore: AUTOBOT_DOCS_URL,
+    setup: AUTOBOT_DOCS_URL,
   },
   edit: {
-    learnMore: "https://docs.continue.dev/ide-extensions/edit/quick-start",
-    setup: "https://docs.continue.dev/ide-extensions/edit/model-setup",
+    learnMore: AUTOBOT_DOCS_URL,
+    setup: AUTOBOT_DOCS_URL,
   },
 } as const;
 
@@ -185,7 +186,7 @@ export function ModelsSection() {
               selectedModel={config.selectedModelByRole.apply ?? undefined}
               onSelect={(model) => handleRoleUpdate("apply", model)}
               onConfigure={handleConfigureModel}
-              setupURL="https://docs.continue.dev/customize/model-roles/apply"
+              setupURL={AUTOBOT_DOCS_URL}
             />
 
             <Divider />
@@ -198,7 +199,7 @@ export function ModelsSection() {
               selectedModel={config.selectedModelByRole.embed ?? undefined}
               onSelect={(model) => handleRoleUpdate("embed", model)}
               onConfigure={handleConfigureModel}
-              setupURL="https://docs.continue.dev/customize/model-roles/embeddings"
+              setupURL={AUTOBOT_DOCS_URL}
             />
 
             <Divider />
@@ -211,7 +212,7 @@ export function ModelsSection() {
               selectedModel={config.selectedModelByRole.rerank ?? undefined}
               onSelect={(model) => handleRoleUpdate("rerank", model)}
               onConfigure={handleConfigureModel}
-              setupURL="https://docs.continue.dev/customize/model-roles/reranking"
+              setupURL={AUTOBOT_DOCS_URL}
             />
           </div>
         </Toggle>

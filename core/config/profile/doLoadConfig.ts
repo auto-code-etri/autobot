@@ -36,6 +36,7 @@ import { loadMarkdownRules } from "../markdown/loadMarkdownRules";
 import { migrateJsonSharedConfig } from "../migrateSharedConfig";
 import { rectifySelectedModelsFromGlobalContext } from "../selectedModels";
 import { loadContinueConfigFromYaml } from "../yaml/loadYaml";
+import AutoFLSlashCommand from "../../commands/slash/built-in-legacy/autofl";
 
 async function loadRules(ide: IDE) {
   const rules: RuleWithSource[] = [];
@@ -59,6 +60,34 @@ async function loadRules(ide: IDE) {
   errors.push(...codebaseRulesCache.errors);
 
   return { rules, errors };
+}
+
+function addBuiltInSlashCommandIfMissing(
+  config: ContinueConfig,
+  command: ContinueConfig["slashCommands"][number],
+) {
+  if (
+    !config.slashCommands.some(
+      (slashCommand) => slashCommand.name === command.name,
+    )
+  ) {
+    config.slashCommands.push(command);
+  }
+}
+
+function upsertBuiltInSlashCommand(
+  config: ContinueConfig,
+  command: ContinueConfig["slashCommands"][number],
+) {
+  const existingIndex = config.slashCommands.findIndex(
+    (slashCommand) => slashCommand.name === command.name,
+  );
+
+  if (existingIndex >= 0) {
+    config.slashCommands[existingIndex] = command;
+  } else {
+    config.slashCommands.push(command);
+  }
 }
 
 export default async function doLoadConfig(options: {
@@ -169,7 +198,11 @@ export default async function doLoadConfig(options: {
     }
   }
 
-  newConfig.slashCommands.push(initSlashCommand);
+  upsertBuiltInSlashCommand(newConfig, {
+    ...AutoFLSlashCommand,
+    source: "built-in-legacy",
+  });
+  addBuiltInSlashCommandIfMissing(newConfig, initSlashCommand);
 
   // Show deprecation warnings for providers
   const globalContext = new GlobalContext();

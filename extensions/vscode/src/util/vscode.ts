@@ -22,7 +22,17 @@ export function getNonce() {
 }
 
 export function getExtensionUri(): vscode.Uri {
-  return vscode.extensions.getExtension("Continue.continue")!.extensionUri;
+  const extension =
+    vscode.extensions.getExtension("ETRI.autobot") ??
+    vscode.extensions.getExtension("etri.autobot") ??
+    vscode.extensions.getExtension("Continue.continue") ??
+    vscode.extensions.getExtension("continue.continue");
+
+  if (!extension) {
+    throw new Error("Autobot extension is not available");
+  }
+
+  return extension.extensionUri;
 }
 
 export function getViewColumnOfFile(

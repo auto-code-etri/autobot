@@ -181,8 +181,7 @@ class MCPConnection {
     if (unrendered.length > 0) {
       this.errors.push(
         `${this.options.name} MCP Server has unresolved secrets: ${unrendered.join(", ")}.
-For personal use you can set the secret in the hub at https://continue.dev/settings/secrets.
-Org-level secrets can only be used for MCP by Background Agents (https://docs.continue.dev/hub/agents/overview) when \"Include in Env\" is enabled.`,
+Set the missing secret in your local Autobot configuration or provide it through the MCP server environment.`,
       );
     }
 

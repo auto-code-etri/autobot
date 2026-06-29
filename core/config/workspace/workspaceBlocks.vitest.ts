@@ -27,7 +27,9 @@ describe("getFileContent", () => {
     const docsResult = getFileContent("docs");
     expect(docsResult).toContain("name: New doc");
     expect(docsResult).toContain("docs:");
-    expect(docsResult).toContain("startUrl: https://docs.continue.dev");
+    expect(docsResult).toContain(
+      "startUrl: https://github.com/auto-code-etri/autobot#readme",
+    );
 
     const promptsResult = getFileContent("prompts");
     expect(promptsResult).toContain("name: New prompt");

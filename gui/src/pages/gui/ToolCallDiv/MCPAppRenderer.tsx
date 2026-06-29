@@ -145,7 +145,7 @@ export function McpAppRenderer({
   useEffect(() => {
     const bridge = new AppBridge(
       null,
-      { name: "Continue", version: "1.0.0" },
+      { name: "Autobot", version: "1.0.0" },
       {
         openLinks: {},
         logging: {},
@@ -295,7 +295,7 @@ export function McpAppRenderer({
         });
       }
     } catch (err) {
-      console.error("[Continue] Failed to connect bridge to MCP App UI:", err);
+      console.error("[Autobot] Failed to connect bridge to MCP App UI:", err);
       setError(err instanceof Error ? err : new Error(String(err)));
     }
   }, [html, csp, permissions]);

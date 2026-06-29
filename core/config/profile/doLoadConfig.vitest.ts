@@ -156,4 +156,86 @@ describe("doLoadConfig pre-read content bypass", () => {
     expect(mockLoadYaml).not.toHaveBeenCalled();
     expect(mockLoadJson).toHaveBeenCalled();
   });
+
+  it("should add the built-in AutoFL slash command", async () => {
+    mockLoadJson.mockResolvedValueOnce({
+      config: { ...stubConfig, slashCommands: [], rules: [] },
+      errors: [],
+      configLoadInterrupted: false,
+    });
+
+    const packageIdentifier: PackageIdentifier = {
+      uriType: "file",
+      fileUri:
+        "vscode-remote://wsl+Ubuntu/home/user/.continue/agents/test.yaml",
+    };
+
+    const result = await doLoadConfig({
+      ide: mockIde,
+
+      llmLogger: mockLlmLogger,
+      profileId: "test-profile",
+      overrideConfigYamlByPath: packageIdentifier.fileUri,
+
+      packageIdentifier,
+    });
+
+    expect(result.config?.slashCommands.map((command) => command.name)).toEqual(
+      expect.arrayContaining(["autofl", "init"]),
+    );
+    expect(
+      result.config?.slashCommands.find((command) => command.name === "autofl"),
+    ).toMatchObject({
+      source: "built-in-legacy",
+      run: expect.any(Function),
+    });
+  });
+
+  it("should replace prompt-based AutoFL with the built-in runner", async () => {
+    mockLoadYaml.mockResolvedValueOnce({
+      config: {
+        ...stubConfig,
+        slashCommands: [
+          {
+            name: "autofl",
+            description: "Custom AutoFL",
+            prompt: "custom autofl prompt",
+            source: "yaml-prompt-block",
+          },
+        ],
+        rules: [],
+      },
+      errors: [],
+      configLoadInterrupted: false,
+    });
+
+    const packageIdentifier: PackageIdentifier = {
+      uriType: "file",
+      fileUri:
+        "vscode-remote://wsl+Ubuntu/home/user/.continue/agents/test.yaml",
+      content: "name: Test\nversion: 1.0.0\nschema: v1\n",
+    };
+
+    const result = await doLoadConfig({
+      ide: mockIde,
+
+      llmLogger: mockLlmLogger,
+      profileId: "test-profile",
+      overrideConfigYamlByPath: packageIdentifier.fileUri,
+
+      packageIdentifier,
+    });
+
+    const autoflCommands =
+      result.config?.slashCommands.filter(
+        (command) => command.name === "autofl",
+      ) ?? [];
+
+    expect(autoflCommands).toHaveLength(1);
+    expect(autoflCommands[0]).toMatchObject({
+      description: "Run a failing test and localize the fault",
+      source: "built-in-legacy",
+      run: expect.any(Function),
+    });
+  });
 });

@@ -49,6 +49,8 @@ import { getMetaKeyLabel } from "./util/util";
 import { openEditorAndRevealRange } from "./util/vscode";
 import { VsCodeIde } from "./VsCodeIde";
 
+const AUTOBOT_DOCS_URL = "https://github.com/auto-code-etri/autobot#readme";
+
 let fullScreenPanel: vscode.WebviewPanel | undefined;
 
 function getFullScreenTab() {
@@ -686,9 +688,7 @@ const getCommandsMap: (
         )
         .then(async (selection) => {
           if (selection === "Read the docs") {
-            await vscode.env.openExternal(
-              vscode.Uri.parse("https://docs.continue.dev/yaml-migration"),
-            );
+            await vscode.env.openExternal(vscode.Uri.parse(AUTOBOT_DOCS_URL));
           }
         });
     },
@@ -771,7 +771,7 @@ const getCommandsMap: (
       // Create the full screen panel
       let panel = vscode.window.createWebviewPanel(
         "continue.continueGUIView",
-        "Continue",
+        "Autobot",
         vscode.ViewColumn.One,
         {
           retainContextWhenHidden: true,

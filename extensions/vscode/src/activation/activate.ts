@@ -20,7 +20,7 @@ export async function activateExtension(context: vscode.ExtensionContext) {
 
     globalContext.update("hasShownUnsupportedPlatformWarning", true);
     void vscode.window.showInformationMessage(
-      `Continue detected that you are using ${platformTarget}. Due to native dependencies, Continue may not be able to start`,
+      `Autobot detected that you are using ${platformTarget}. Due to native dependencies, Autobot may not be able to start`,
     );
   }
 
@@ -33,7 +33,7 @@ export async function activateExtension(context: vscode.ExtensionContext) {
 
   const vscodeExtension = new VsCodeExtension(context);
 
-  // Load Continue configuration
+  // Load Autobot configuration
   if (!context.globalState.get("hasBeenInstalled")) {
     void context.globalState.update("hasBeenInstalled", true);
   }
@@ -59,7 +59,7 @@ export async function activateExtension(context: vscode.ExtensionContext) {
     );
   } catch (error) {
     console.error(
-      "Failed to register Continue config.yaml schema, most likely, YAML extension is not installed",
+      "Failed to register Autobot config.yaml schema, most likely, YAML extension is not installed",
       error,
     );
   }

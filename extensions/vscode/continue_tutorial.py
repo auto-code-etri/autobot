@@ -1,10 +1,6 @@
-"""                    _________               _____ _____
-                       __  ____/______ _______ __  /____(_)_______ ____  _______
-                       _  /     _  __ \__  __ \_  __/__  / __  __ \_  / / /_  _ \
-                       / /___   / /_/ /_  / / // /_  _  /  _  / / // /_/ / /  __/
-                       \____/   \____/ /_/ /_/ \__/  /_/   /_/ /_/ \__,_/  \___/
+"""                                  Autobot
 
-                                 Autocomplete, Edit, Chat, and Agent tutorial
+                     Autocomplete, Edit, Chat, and Agent tutorial
 """
 
 
@@ -21,7 +17,7 @@
 
 # 1. Highlight the code below
 # 2. Press [Cmd/Ctrl + I] to Edit
-# 3. Try asking Continue to "make this more readable"
+# 3. Try asking Autobot to "make this more readable"
 def sorting_algorithm(x):
     for i in range(len(x)):
         for j in range(len(x) - 1):
@@ -34,7 +30,7 @@ def sorting_algorithm(x):
 
 # 1. Highlight the code below
 # 2. Press [Cmd/Ctrl + L] to add to Chat
-# 3. Try asking Continue "what sorting algorithm is this?"
+# 3. Try asking Autobot "what sorting algorithm is this?"
 def sorting_algorithm2(x):
     for i in range(len(x)):
         for j in range(len(x) - 1):
@@ -49,4 +45,4 @@ def sorting_algorithm2(x):
 # 1. Switch from "Chat" to "Agent" mode using the dropdown in the bottom left of the input box
 # 2. Use the "/init" slash command to generate a CONTINUE.md file
 
-  # ——————————————————      Learn more at https://docs.continue.dev      ——————————————————— #
+  # ——————      Learn more at https://github.com/auto-code-etri/autobot#readme      —————— #

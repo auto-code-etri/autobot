@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Continue",
+  "name": "Autobot",
   "colors": {
     "primary": "#6b7280",
     "light": "#ffffff",
@@ -213,7 +213,7 @@
   "logo": {
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg",
-    "href": "https://docs.continue.dev"
+    "href": "https://github.com/auto-code-etri/autobot"
   },
   "background": {
     "color": {
@@ -223,15 +223,12 @@
   "navbar": {
     "primary": {
       "type": "github",
-      "href": "https://github.com/continuedev/continue"
+      "href": "https://github.com/auto-code-etri/autobot"
     }
   },
   "footer": {
     "socials": {
-      "x": "https://twitter.com/continuedev",
-      "github": "https://github.com/continuedev/continue",
-      "linkedin": "https://linkedin.com/company/continuedev",
-      "youtube": "https://www.youtube.com/@continuedev"
+      "github": "https://github.com/auto-code-etri/autobot"
     }
   },
   "contextual": {
@@ -262,7 +259,7 @@
     },
     {
       "source": "/changelog",
-      "destination": "https://changelog.continue.dev"
+      "destination": "https://github.com/auto-code-etri/autobot/releases"
     },
     {
       "source": "/customization",
@@ -874,7 +871,7 @@
     },
     {
       "source": "/about",
-      "destination": "https://continue.dev/about-us"
+      "destination": "https://github.com/auto-code-etri/autobot"
     },
     {
       "source": "/autocomplete/model-setup",

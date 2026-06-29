@@ -1,5 +1,7 @@
 import * as vscode from "vscode";
 
+const AUTOBOT_DOCS_URL = "https://github.com/auto-code-etri/autobot#readme";
+
 export class DownloadYamlExtensionCodeLensProvider
   implements vscode.CodeLensProvider
 {
@@ -22,9 +24,9 @@ export class DownloadYamlExtensionCodeLensProvider
     const docCodeLens: vscode.CodeLens = {
       range: new vscode.Range(0, 0, 0, 0),
       command: {
-        title: "📖 View Continue Reference",
+        title: "View Autobot config reference",
         command: "vscode.open",
-        arguments: [vscode.Uri.parse("https://docs.continue.dev/reference")],
+        arguments: [vscode.Uri.parse(AUTOBOT_DOCS_URL)],
       },
       isResolved: true,
     };

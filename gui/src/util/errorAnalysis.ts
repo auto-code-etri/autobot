@@ -1,5 +1,7 @@
 import { providers } from "../pages/AddNewModel/configs/providers";
 
+const AUTOBOT_DOCS_URL = "https://github.com/auto-code-etri/autobot#readme";
+
 export interface ErrorAnalysis {
   parsedError: string;
   statusCode?: number;
@@ -144,7 +146,7 @@ export function analyzeError(
 
   // Missing authentication header (no API key configured)
   if (errorText.includes("missing bearer or basic authentication")) {
-    helpUrl = "https://docs.continue.dev/reference#models";
+    helpUrl = AUTOBOT_DOCS_URL;
     customErrorMessage =
       'No API key was sent with the request. Add "apiKey" to your model config.';
   }

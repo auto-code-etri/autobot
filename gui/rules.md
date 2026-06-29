@@ -1,1 +1,1 @@
-- Whenever adding links in the `gui` that direct to `continue.dev`, you should use the IDE's `openUrl` command to open the URL in the user's default browser.
+- Whenever adding external documentation links in the `gui`, use the IDE's `openUrl` command to open the URL in the user's default browser.

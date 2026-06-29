@@ -2,6 +2,8 @@ import * as path from "path";
 
 import * as vscode from "vscode";
 
+const AUTOBOT_DOCS_URL = "https://github.com/auto-code-etri/autobot#readme";
+
 export class ConfigYamlDocumentLinkProvider
   implements vscode.DocumentLinkProvider
 {
@@ -57,7 +59,7 @@ export class ConfigYamlDocumentLinkProvider
           const resolvedPath = path.resolve(parentPath, slug);
           linkUri = vscode.Uri.file(resolvedPath);
         } else {
-          linkUri = vscode.Uri.parse(`https://continue.dev/${slug}`);
+          linkUri = vscode.Uri.parse(AUTOBOT_DOCS_URL);
         }
 
         const link = new vscode.DocumentLink(range, linkUri);

@@ -27,10 +27,12 @@ export function setConfigFilePermissions(filePath: string): void {
 const CONTINUE_GLOBAL_DIR = (() => {
   const configPath = process.env.CONTINUE_GLOBAL_DIR;
   if (configPath) {
-    // Convert relative path to absolute paths based on current working directory
+    // VS Code's extension host may run from the downloaded Code binary folder
+    // during e2e tests, so prefer npm's original invocation directory.
+    const basePath = process.env.INIT_CWD ?? process.cwd();
     return path.isAbsolute(configPath)
       ? configPath
-      : path.resolve(process.cwd(), configPath);
+      : path.resolve(basePath, configPath);
   }
   return path.join(os.homedir(), ".continue");
 })();
@@ -158,7 +160,7 @@ export function getConfigTsPath(): string {
       JSON.stringify({
         name: "continue-config",
         version: "1.0.0",
-        description: "My Continue Configuration",
+        description: "My Autobot Configuration",
         main: "config.js",
       }),
     );

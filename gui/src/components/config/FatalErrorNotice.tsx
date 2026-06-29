@@ -6,6 +6,8 @@ import { useAppSelector } from "../../redux/hooks";
 import { CONFIG_ROUTES } from "../../util/navigation";
 import Alert from "../gui/Alert";
 
+const AUTOBOT_DOCS_URL = "https://github.com/auto-code-etri/autobot#readme";
+
 export const FatalErrorIndicator = () => {
   const { refreshProfiles } = useAuth();
   const configError = useAppSelector((store) => store.config.configError);
@@ -43,10 +45,7 @@ export const FatalErrorIndicator = () => {
       <div className="mt-2 flex flex-row flex-wrap items-center gap-x-3 gap-y-1.5">
         <div
           onClick={() => {
-            ideMessenger.post(
-              "openUrl",
-              "https://docs.continue.dev/troubleshooting",
-            );
+            ideMessenger.post("openUrl", AUTOBOT_DOCS_URL);
           }}
           className="cursor-pointer underline"
         >
